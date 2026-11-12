@@ -1,153 +1,154 @@
 # 5. Git and GitHub
 
-## 5.1 Version control
-Version control records changes to files over time so earlier versions can be inspected, compared, and recovered. It helps track modifications, identify who made a change and when, restore earlier versions, and support multiple contributors.
+## 5.1 Introduction
 
-## 5.2 Git vs GitHub
-- **Git** is a distributed version control system used to track changes locally.
-- **GitHub** is a hosting platform for Git repositories and collaboration.
+Git is a distributed version-control system used to track changes in files and coordinate work. GitHub is an online platform for hosting Git repositories and collaborating on projects.
 
-## 5.3 Git architecture
-- Working directory: files currently being edited.
-- Staging area: selected changes prepared for a commit.
-- Local repository: committed project history.
-- Remote repository: shared repository hosted on a service such as GitHub.
+## 5.2 Configure Git
 
-## 5.4 Initial configuration
+Set the name and email that Git records in commits:
+
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "you@example.com"
 git config --global --list
 ```
-These values identify the author of commits; they do not authenticate you to GitHub.
 
-## 5.5 Create a repository
+These settings identify the commit author. They are separate from GitHub sign-in authentication.
+
+## 5.3 Create a Repository
+
 ```bash
 mkdir my-project
 cd my-project
 git init
 ```
 
-## 5.6 Basic workflow
+`git init` initialises a Git repository in the current folder.
+
+## 5.4 Basic Git Workflow
+
+The common workflow is:
+
+**Edit → Stage → Commit → Push**
+
 ```bash
 git status
 git add .
-git status
-git commit -m "Add initial files"
-git log --oneline
+git commit -m "Add project files"
+git push
 ```
-The workflow is: edit files → stage changes → commit changes → push to GitHub.
 
-## 5.7 Inspect changes and history
+- `git status` displays the current repository state.
+- `git add .` stages changes in the current directory.
+- `git commit -m "message"` records staged changes.
+- `git push` uploads local commits to a configured remote.
+
+## 5.5 View Changes
+
 ```bash
-git status
 git diff
 git diff --staged
 git diff HEAD
-git log
-git log --oneline
-git show
-```
-- `git diff` shows unstaged changes.
-- `git diff --staged` shows staged changes.
-- `git diff HEAD` compares tracked changes with the current commit.
-- `git log` displays commit history.
-
-## 5.8 Branches
-Branches allow work to be developed separately.
-```bash
-git branch
-git branch feature-login
-git switch feature-login
-git switch main
-git branch -d feature-login
 ```
 
-## 5.9 Merge
-To merge a feature branch into main:
-```bash
-git switch main
-git merge feature-login
-```
-Merge combines branch histories and may create a merge commit.
+These commands show unstaged changes, staged changes, and the overall difference from `HEAD`, respectively.
 
-## 5.10 Merge conflicts
-A conflict occurs when Git cannot automatically combine competing changes. Git may mark the conflicting region:
-```text
-<<<<<<< HEAD
-version from current branch
-=======
-version from other branch
->>>>>>> feature-branch
-```
-Resolve the file manually, remove the markers, then stage and complete the merge:
-```bash
-git add filename
-git commit
-```
+## 5.6 Connect to GitHub
 
-## 5.11 Remotes and GitHub
+Create an empty repository on GitHub, then connect the local repository:
+
 ```bash
 git remote add origin REPOSITORY_URL
 git remote -v
+git branch -M main
 git push -u origin main
 ```
-A remote connects the local repository to a hosted repository. `origin` is a conventional remote name.
 
-## 5.12 Clone, fetch, and pull
+Replace `REPOSITORY_URL` with the URL copied from the GitHub repository.
+
+## 5.7 Clone, Fetch, and Pull
+
 ```bash
 git clone REPOSITORY_URL
 git fetch origin
-git pull
-```
-- `clone` downloads a repository and its history.
-- `fetch` downloads remote updates without integrating them into the current branch.
-- `pull` fetches and integrates updates into the current branch.
-
-## 5.13 Push a branch
-```bash
-git switch -c feature-subtraction
-git add .
-git commit -m "Add subtraction feature"
-git push -u origin feature-subtraction
-```
-Then open GitHub, create a pull request, review the changes, and merge it. Afterwards:
-```bash
-git switch main
 git pull origin main
 ```
 
-## 5.14 Revert a commit
-```bash
-git log --oneline
-git revert COMMIT_ID
-```
-`git revert` creates a new commit that reverses the changes introduced by an earlier commit while preserving existing history.
+- `git clone` creates a local copy of a remote repository.
+- `git fetch` downloads remote updates without integrating them into the current branch.
+- `git pull` fetches and integrates updates into the current branch.
 
-## 5.15 Merge vs rebase
+## 5.8 Branching
+
+Branches allow work to be developed separately.
+
+```bash
+git branch
+git switch -c feature
+git switch main
+```
+
+To merge a feature branch into `main`:
+
 ```bash
 git switch main
 git merge feature
 ```
-or
+
+## 5.9 Merge Conflicts
+
+A merge conflict occurs when Git cannot automatically combine changes. Open the conflicted file, decide which content should remain, remove conflict markers, save the file, then stage and commit the resolution.
+
+## 5.10 Merge and Rebase
+
+Merge combines branch histories and may create a merge commit:
+
+```bash
+git switch main
+git merge feature
+```
+
+Rebase replays commits on a new base:
+
 ```bash
 git switch feature
 git rebase main
 ```
-Merge combines branch histories. Rebase replays commits on a new base and rewrites commit identities. Avoid rebasing shared commits unless the team understands the consequences.
 
-## 5.16 Common errors
-| Problem | Possible response |
-|---|---|
-| Untracked files | Stage required files using `git add` |
-| Push rejected | Fetch remote changes and integrate them |
-| Merge conflict | Resolve the conflicting file and complete the merge |
-| Wrong branch | Check using `git branch` |
-| Nothing to commit | Inspect `git status` |
-| Authentication failed | Check credentials and repository permissions |
+Rebase rewrites commit identities. Avoid rebasing shared commits unless the team understands the consequences.
 
-## 5.17 What I learned
-Git tracks project history, while GitHub hosts repositories and supports collaboration. Branches and pull requests help contributors work on features separately and review changes before merging.
+## 5.11 Reverting a Commit
 
-## Source material
-Based on the uploaded *Version Control Tools: Git and GitHub* lecture (76 slides, October 12, 2026).
+Inspect commit history and revert a selected commit:
+
+```bash
+git log --oneline
+git revert COMMIT_ID
+```
+
+`git revert` creates a new commit that reverses the changes introduced by the selected commit.
+
+## 5.12 Pull Request Workflow
+
+A typical collaborative workflow is:
+
+1. Create or clone a repository.
+2. Create a branch for a new feature.
+3. Modify files and test the changes.
+4. Stage and commit the changes.
+5. Push the branch to GitHub.
+6. Open a pull request and request review.
+7. Merge the approved changes.
+
+## 5.13 Examples
+
+The [`Examples/`](Examples/) folder contains a Git command practice script and a sample `.gitignore` file. Run the commands in a test repository rather than experimenting on important project files.
+
+## 5.14 What I Learned
+
+I learned how to initialise repositories, track file changes, stage and commit work, connect a local repository to GitHub, push and pull updates, create branches, merge changes, and understand collaboration through pull requests.
+
+## Source Material
+
+Based on the Technical Writing lecture on Git and GitHub (October 12, 2026).

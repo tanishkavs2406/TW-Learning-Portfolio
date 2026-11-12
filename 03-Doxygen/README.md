@@ -1,59 +1,84 @@
 # 3. Doxygen
 
 ## 3.1 Introduction
-Doxygen is an open-source documentation generator for programming languages such as C, C++, Python, and Java. It extracts information from specially formatted comments in source code and generates reference documentation such as HTML, LaTeX, and PDF.
 
-## 3.2 Why use Doxygen?
-- Documents functions, classes, and modules.
-- Helps developers understand and maintain code.
-- Generates cross-references and diagrams.
-- Supports Markdown, LaTeX formulas, diagrams, and code examples.
+Doxygen is a documentation-generation tool. It reads source-code files and specially formatted comments, then generates documentation in formats such as HTML and LaTeX/PDF.
 
-## 3.3 Common documentation tags
+It is useful for documenting functions, classes, files, parameters, and return values.
 
-| Tag | Purpose |
-|---|---|
-| `\\brief` | Short summary of a function, class, or module |
-| `\\param` | Describes a parameter |
-| `\\return` | Describes the return value |
-| `\\author` | Author information |
-| `\\version` | Version information |
-| `\\see` | Reference to related items |
-| `\\note` | Additional note |
+## 3.2 Basic Doxygen Workflow
 
-## 3.4 Example of documented C++ code
-```cpp
-/**
- * \\brief Adds two integers.
- * \\param a First integer.
- * \\param b Second integer.
- * \\return Sum of a and b.
- */
-int add(int a, int b) {
-    return a + b;
-}
+1. Write specially formatted comments in the source code.
+2. Create a configuration file using `doxygen -g Doxyfile`.
+3. Edit the configuration file as required.
+4. Run `doxygen Doxyfile`.
+5. Browse the generated output, commonly in the `html` directory.
+
+```bash
+doxygen -g Doxyfile
+doxygen Doxyfile
 ```
 
-Doxygen-style comments can also document files, classes, and members.
+## 3.3 Documentation Comments
 
-## 3.5 Basic workflow
-1. Write specially formatted comments in source code.
-2. Generate a configuration file:
-   ```bash
-   doxygen -g Doxyfile
-   ```
-3. Edit the configuration file as required.
-4. Generate documentation:
-   ```bash
-   doxygen Doxyfile
-   ```
-5. Browse the generated HTML documentation, commonly at `html/index.html`.
+Doxygen recognises specially formatted comments. A common C++ style is:
 
-## 3.6 Output
-Doxygen can generate HTML and LaTeX output. A PDF workflow can be created from the generated LaTeX output when the required LaTeX tools are installed.
+```cpp
+/**
+ * @brief Adds two integers.
+ * @param a First integer.
+ * @param b Second integer.
+ * @return Sum of the two integers.
+ */
+int add(int a, int b);
+```
 
-## 3.7 What I learned
-Doxygen turns structured comments in source code into navigable reference documentation. It is useful for documenting APIs, functions, classes, and software libraries.
+Common commands include:
 
-## Source material
-Based on the uploaded lecture, *Introduction to Documentation Tools: Doxygen & Google Docs*.
+- `@brief`: short description.
+- `@param`: describes a parameter.
+- `@return`: describes the return value.
+- `@author`: identifies the author.
+- `@file`: describes a file.
+- `@see`: refers to related documentation.
+
+## 3.4 Configuration File
+
+Generate a starter configuration file:
+
+```bash
+doxygen -g Doxyfile
+```
+
+The Doxyfile controls input files, output directories, and output formats. Some important settings include:
+
+```text
+INPUT                  = .
+RECURSIVE              = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = YES
+```
+
+The exact configuration can be changed to suit the project.
+
+## 3.5 Output Formats
+
+Doxygen can generate multiple output formats, including:
+
+- HTML — useful for browsing documentation.
+- LaTeX/PDF — useful for printable manuals.
+- RTF, XML, DocBook, and man pages — depending on configuration.
+
+The HTML output is commonly opened from `html/index.html`.
+
+## 3.6 Examples
+
+The [`Examples/`](Examples/) folder contains a documented C++ source file and a sample Doxyfile. Run the commands from that folder after installing Doxygen.
+
+## 3.7 What I Learned
+
+I learned how Doxygen extracts documentation from specially formatted source-code comments, how to generate and edit a Doxyfile, and how to produce browsable HTML or printable documentation.
+
+## Source Material
+
+Based on the Technical Writing lecture on Introduction to Documentation Tools: Doxygen and Google Docs.

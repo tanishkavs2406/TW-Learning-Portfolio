@@ -1,9 +1,13 @@
-# 2. Beamer — Presentations using LaTeX
+# 2. Beamer
 
 ## 2.1 Introduction
-Beamer is a LaTeX document class used to create slide-based presentations. It supports structured frames, themes, bullet points, columns, blocks, and overlays.
 
-## 2.2 Basic Beamer document
+Beamer is a LaTeX document class used to create presentation slides. Instead of preparing slides with a graphical slide editor, the author writes LaTeX source and compiles it into a presentation PDF.
+
+## 2.2 Basic Structure
+
+A Beamer presentation uses the `beamer` document class. Each slide is usually created with a `frame` environment.
+
 ```latex
 \documentclass{beamer}
 
@@ -15,79 +19,84 @@ Beamer is a LaTeX document class used to create slide-based presentations. It su
 \begin{document}
 
 \begin{frame}
-  \titlepage
+    \titlepage
 \end{frame}
 
 \begin{frame}{Introduction}
-  Welcome to my presentation.
+    This is my first slide.
 \end{frame}
 
 \end{document}
 ```
 
-## 2.3 Frames
-Each slide is generally created using a `frame` environment:
-```latex
-\begin{frame}{Slide Title}
-  Slide content goes here.
-\end{frame}
-```
+## 2.3 Important Commands and Environments
 
-## 2.4 Lists
-```latex
-\begin{frame}{Main Points}
-  \begin{itemize}
-    \item First point
-    \item Second point
-  \end{itemize}
-\end{frame}
-```
+- `\documentclass{beamer}` selects the Beamer class.
+- `\title{...}` sets the presentation title.
+- `\author{...}` sets the author.
+- `\institute{...}` sets the institution.
+- `\date{...}` sets the date.
+- `\titlepage` creates a title slide.
+- `frame` defines an individual slide.
+- `\section{...}` organises the presentation into sections.
 
-## 2.5 Themes
-A theme controls the overall appearance of slides:
+## 2.4 Themes
+
+A theme controls the overall appearance of the slides.
+
 ```latex
 \usetheme{Madrid}
 ```
-Other themes can be selected to change the presentation's visual style.
 
-## 2.6 Blocks
+The theme command is placed in the preamble, before `\begin{document}`. The available themes depend on the installed Beamer distribution.
+
+## 2.5 Lists and Blocks
+
 ```latex
-\begin{frame}{Important Concept}
-  \begin{block}{Definition}
-    A block highlights related information.
-  \end{block}
+\begin{frame}{Key Points}
+    \begin{itemize}
+        \item First point
+        \item Second point
+    \end{itemize}
+
+    \begin{block}{Definition}
+        A block highlights related information.
+    \end{block}
 \end{frame}
 ```
 
-## 2.7 Columns
+## 2.6 Columns
+
+The `columns` environment divides a slide into columns.
+
 ```latex
 \begin{frame}{Two Columns}
-  \begin{columns}
-    \column{0.5\textwidth}
-    Left column content
+    \begin{columns}
+        \column{0.48\textwidth}
+        Left-side content
 
-    \column{0.5\textwidth}
-    Right column content
-  \end{columns}
+        \column{0.48\textwidth}
+        Right-side content
+    \end{columns}
 \end{frame}
 ```
 
-## 2.8 Overlays
-Overlays reveal content in stages:
-```latex
-\begin{frame}{Step by Step}
-  \begin{itemize}
-    \item<1-> First point
-    \item<2-> Second point
-    \item<3-> Third point
-  \end{itemize}
-\end{frame}
+## 2.7 Compilation
+
+Save the source with a `.tex` extension and compile it with a LaTeX engine that supports Beamer, for example:
+
+```bash
+pdflatex presentation.tex
 ```
 
-The `\pause` command can also reveal later content on a subsequent overlay.
+## 2.8 Examples
 
-## 2.9 What I learned
-Beamer allows presentations to be written as LaTeX source. Frames organise slides, themes control appearance, and overlays help reveal information progressively.
+See [`Examples/`](Examples/) for a complete sample presentation.
 
-## Source material
-Based on the Beamer section in the uploaded LaTeX environments lecture. The uploaded notes show the `beamer` document class and a `frame` example.
+## 2.9 What I Learned
+
+Beamer makes it possible to create structured slide presentations using LaTeX. I learned the basic presentation structure, frames, title slides, themes, lists, blocks, and columns.
+
+## Source Material
+
+This section records the Beamer concepts practised as part of the Technical Writing presentation work. The specific examples in the folder are practice samples.

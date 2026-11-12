@@ -2,34 +2,42 @@
 
 **Technical Writing (TW) — Learning Documentation**
 
-This repository contains my notes, explanations, syntax examples, and practical exercises from the TW class.
+This repository contains notes, explanations, syntax references, and practical samples prepared while studying Technical Writing.
 
 ## Topics
-1. [LaTeX](01-LaTeX/README.md)
-2. [Beamer](02-Beamer/README.md)
-3. [Doxygen](03-Doxygen/README.md)
-4. [Google Docs](04-Google-Docs/README.md)
-5. [Git and GitHub](05-Git-GitHub/README.md)
 
-## Repository structure
+1. [LaTeX](01-LaTeX/README.md) — document structure, formatting, mathematics, tables, figures, and colours.
+2. [Beamer](02-Beamer/README.md) — presentation slides created with LaTeX Beamer.
+3. [Doxygen](03-Doxygen/README.md) — source-code documentation using specially formatted comments.
+4. [Google Docs](04-Google-Docs/README.md) — document creation, formatting, collaboration, comments, and version history.
+5. [Git and GitHub](05-Git-GitHub/README.md) — version control, repositories, branches, commits, remotes, and collaboration.
+
+Each topic folder contains:
+- `README.md` — topic notes and explanations.
+- `Examples/` — sample files and practical exercises.
+
+## Repository Structure
+
 ```text
 TW-Learning-Portfolio/
 ├── 01-LaTeX/
+│   ├── README.md
+│   └── Examples/
 ├── 02-Beamer/
+│   ├── README.md
+│   └── Examples/
 ├── 03-Doxygen/
+│   ├── README.md
+│   └── Examples/
 ├── 04-Google-Docs/
-├── 05-Git-GitHub/
-├── examples/
-└── README.md
+│   ├── README.md
+│   └── Examples/
+└── 05-Git-GitHub/
+    ├── README.md
+    ├── GIT-COMMAND-PRACTICE.md
+    └── Examples/
 ```
 
-## Learning objective
-The purpose of this portfolio is to document the tools learned in TW and demonstrate the ability to maintain documentation using Git and GitHub.
+## Purpose
 
-## Practical work
-- LaTeX source examples are included in `examples/`.
-- A documented C++ example for Doxygen is included in `examples/`.
-- Git command practice is described in the Git and GitHub section.
-
----
-*Prepared as a learning portfolio for the Technical Writing course.*
+The aim of this repository is to organise the concepts learned in TW and keep working examples alongside the documentation.

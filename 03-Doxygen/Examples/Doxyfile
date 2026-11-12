@@ -1,0 +1,12 @@
+# Minimal sample Doxygen configuration.
+# Generate a full configuration with: doxygen -g Doxyfile
+
+PROJECT_NAME           = "TW Doxygen Example"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = .
+FILE_PATTERNS          = *.cpp *.h
+RECURSIVE              = YES
+EXTRACT_ALL             = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = YES
+QUIET                  = YES

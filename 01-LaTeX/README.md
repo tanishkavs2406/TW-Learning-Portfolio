@@ -1,17 +1,20 @@
 # 1. LaTeX
 
 ## 1.1 Introduction
+
 LaTeX is a document preparation system based on the TeX typesetting system. It is useful for technical and academic documents, especially when mathematical notation, references, tables, and structured layouts are required.
 
 ### Advantages
+
 - Portable and free.
-- Professional document layouts.
+- Produces professional document layouts.
 - Convenient mathematical typesetting.
-- Supports multiple output formats.
+- Supports structured documents.
 - Can generate tables of contents, footnotes, references, and bibliographies.
 
-## 1.2 Basic document structure
-A LaTeX source file is a plain-text file saved with the `.tex` extension. A basic document has a preamble and a document body.
+## 1.2 Basic Document Structure
+
+A LaTeX source file is a plain-text file saved with the `.tex` extension. A basic document consists of a preamble and a document body.
 
 ```latex
 \documentclass[12pt,a4paper]{article}
@@ -22,83 +25,136 @@ Hello, LaTeX!
 ```
 
 - `\documentclass` selects the document type and options.
-- The preamble contains packages and settings.
+- The preamble contains packages and document settings.
 - `\begin{document}` starts the document body.
-- `\end{document}` ends it.
+- `\end{document}` ends the document.
 
-Common classes include `article`, `report`, and `book`.
+Common document classes include `article`, `report`, and `book`.
 
-## 1.3 Packages and page layout
-Packages add features to LaTeX.
+## 1.3 Packages and Page Layout
+
+Packages add features to LaTeX. They are included in the preamble, before `\begin{document}`.
 
 ```latex
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{geometry}
-\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\geometry{
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
 ```
 
 Page styles include:
+
 - `plain`: page number at the bottom.
 - `empty`: no header, footer, or page number.
 - `headings`: section or chapter information in the header.
 
-## 1.4 Text formatting and structure
+```latex
+\pagestyle{plain}
+```
+
+## 1.4 Text Formatting and Structure
+
+LaTeX commands are case-sensitive and generally begin with a backslash.
+
 ```latex
 \section{Introduction}
 \subsection{Purpose}
+
 \textbf{Bold text}
 \textit{Italic text}
 \underline{Underlined text}
+\emph{Emphasized text}
 ```
 
-Lists:
+### Unordered List
+
 ```latex
 \begin{itemize}
-  \item First point
-  \item Second point
+    \item First point
+    \item Second point
 \end{itemize}
+```
 
+### Ordered List
+
+```latex
 \begin{enumerate}
-  \item First step
-  \item Second step
+    \item First step
+    \item Second step
 \end{enumerate}
 ```
 
-## 1.5 Mathematical notation
-Inline mathematics: `\(x+y=10\)`
+## 1.5 Mathematical Notation
 
-Displayed equation:
+LaTeX supports inline and displayed mathematical expressions.
+
+**Inline mathematics**
+
+```latex
+\(x+y=10\)
+```
+
+**Displayed equation**
+
 ```latex
 \[
 x+y=10
 \]
 ```
 
-Examples:
+### Common Expressions
+
 ```latex
 $a_i^2 + b_j^3$
+
 $\alpha,\beta,\gamma,\delta,\lambda,\pi$
+
 $\frac{a+b}{c}$
+
 $\sqrt{x}$ and $\sqrt[3]{y}$
+
 $\sum_{i=1}^{n} i$
 ```
 
-Matrices:
+### Matrices
+
+The `bmatrix` environment creates a matrix enclosed in square brackets.
+
 ```latex
 \[
-A = \begin{bmatrix}
+A =
+\begin{bmatrix}
 1 & 2 \\
 3 & 4
 \end{bmatrix}
 \]
 ```
 
-For aligned equations, the `align` environment from `amsmath` is useful.
+- `&` separates columns.
+- `\\` separates rows.
+
+### Aligned Equations
+
+The `align` environment from the `amsmath` package aligns equations, often at the `&` symbol.
+
+```latex
+\begin{align}
+x + y &= 10 \\
+2x + y &= 15
+\end{align}
+```
 
 ## 1.6 Tables
-A simple table:
+
+The `tabular` environment is used to create tables.
+
 ```latex
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -112,6 +168,8 @@ Ravi & Science & 85 \\
 \end{center}
 ```
 
+### Important Table Commands
+
 - `&` separates columns.
 - `\\` ends a row.
 - `\hline` draws a horizontal line.
@@ -120,37 +178,66 @@ Ravi & Science & 85 \\
 - `\multicolumn` combines columns.
 - `\multirow` combines rows when the `multirow` package is loaded.
 
-Table placement options include `h`, `t`, `b`, `p`, and `!`. The `H` option is available through the `float` package.
+### Table Placement
 
-## 1.7 Figures, pictures, and colours
-Include an external image:
+Common float placement options include `h` (here), `t` (top), `b` (bottom), and `p` (float page). `!` asks LaTeX to relax certain placement restrictions. `H` is provided by the `float` package and requests placement at that exact point.
+
+## 1.7 Figures, Pictures, and Colours
+
+### Including an External Image
+
+The `graphicx` package is used to include external images.
+
 ```latex
 \usepackage{graphicx}
 
 \begin{figure}[h]
-  \centering
-  \includegraphics[width=0.5\textwidth]{sample.png}
-  \caption{Sample figure}
-  \label{fig:sample}
+    \centering
+    \includegraphics[width=0.5\textwidth]{sample.png}
+    \caption{Sample figure}
+    \label{fig:sample}
 \end{figure}
 ```
 
-Colour support:
+### Colours
+
+The `xcolor` package provides colour support.
+
 ```latex
 \usepackage{xcolor}
+
 \textcolor{blue}{Blue text}
+
 \definecolor{myblue}{RGB}{10,60,200}
+\textcolor{myblue}{Custom coloured text}
 ```
 
-## 1.8 Compiling
-A `.tex` file can be compiled to PDF using:
+## 1.8 Compiling a LaTeX Document
+
+A `.tex` file is processed by a LaTeX compiler to generate the final document.
+
+**PDFLaTeX**
+
 ```bash
 pdflatex filename.tex
 ```
-Online editors such as Overleaf can compile documents automatically.
 
-## 1.9 What I learned
-LaTeX separates content from formatting and provides precise control over technical documents. I practised document structure, formatting, equations, lists, tables, figures, and colours.
+**Traditional LaTeX workflow**
 
-## Source material
-Based on the TW LaTeX lecture PDFs: Introduction to LaTeX, LaTeX (continued), mathematical notations/equations/arrays/matrices/lists, table styles, and colours/figures/picture environment.
+```bash
+latex filename.tex
+```
+
+The traditional command generates a DVI file. Editors such as Overleaf and TeXstudio can compile documents through their interfaces.
+
+## 1.9 Examples
+
+The [`Examples/`](Examples/) folder contains small source files that demonstrate document structure, equations, tables, and figures/colours. Open each `.tex` file in a LaTeX editor and compile it to inspect the output.
+
+## 1.10 What I Learned
+
+LaTeX separates document content from formatting and provides precise control over technical documents. I practised document structure, text formatting, mathematical equations, lists, matrices, tables, figures, and colours.
+
+## Source Material
+
+Based on the Technical Writing lecture material on Introduction to LaTeX, environments, mathematical notations/equations/arrays/matrices/lists, table styles, and colours/figures/picture environment.
