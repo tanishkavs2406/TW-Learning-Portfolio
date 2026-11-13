@@ -1,56 +1,45 @@
 # 2. Beamer
 
-## 2.1 Introduction
+## What I learned
 
-Beamer is a LaTeX document class used to create presentation slides. Instead of preparing slides with a graphical slide editor, the author writes LaTeX source and compiles it into a presentation PDF.
+Beamer is a LaTeX document class used to create presentation slides. I learned that presentations can be written as LaTeX source files and compiled into PDF slides, rather than arranging every slide manually in a graphical editor.
 
-## 2.2 Basic Structure
+## 2.1 Basic presentation structure
 
-A Beamer presentation uses the `beamer` document class. Each slide is usually created with a `frame` environment.
+A Beamer file begins with the `beamer` document class. Each slide is created inside a `frame` environment. Presentation details such as the title, author, institute, and date are set in the preamble.
 
 ```latex
 \documentclass{beamer}
-
 \title{My Presentation}
 \author{Student Name}
 \institute{MNIT Jaipur}
 \date{\today}
 
 \begin{document}
-
 \begin{frame}
     \titlepage
 \end{frame}
-
 \begin{frame}{Introduction}
     This is my first slide.
 \end{frame}
-
 \end{document}
 ```
 
-## 2.3 Important Commands and Environments
+I learned the purpose of `\title`, `\author`, `\institute`, `\date`, and `\titlepage`, and how a `frame` represents an individual slide.
 
-- `\documentclass{beamer}` selects the Beamer class.
-- `\title{...}` sets the presentation title.
-- `\author{...}` sets the author.
-- `\institute{...}` sets the institution.
-- `\date{...}` sets the date.
-- `\titlepage` creates a title slide.
-- `frame` defines an individual slide.
-- `\section{...}` organises the presentation into sections.
+## 2.2 Themes
 
-## 2.4 Themes
-
-A theme controls the overall appearance of the slides.
+Themes control the overall appearance of a presentation. A theme is selected in the preamble, before `\begin{document}`.
 
 ```latex
 \usetheme{Madrid}
 ```
 
-The theme command is placed in the preamble, before `\begin{document}`. The available themes depend on the installed Beamer distribution.
+The available themes depend on the installed Beamer distribution.
 
-## 2.5 Lists and Blocks
+## 2.3 Lists and blocks
+
+I learned that lists can organise information on a slide and blocks can visually highlight a definition or important point.
 
 ```latex
 \begin{frame}{Key Points}
@@ -65,9 +54,9 @@ The theme command is placed in the preamble, before `\begin{document}`. The avai
 \end{frame}
 ```
 
-## 2.6 Columns
+## 2.4 Columns
 
-The `columns` environment divides a slide into columns.
+The `columns` environment divides a frame into side-by-side areas. This is useful when two related sets of information need to be shown on one slide.
 
 ```latex
 \begin{frame}{Two Columns}
@@ -81,22 +70,22 @@ The `columns` environment divides a slide into columns.
 \end{frame}
 ```
 
-## 2.7 Compilation
+## 2.5 Compilation
 
-Save the source with a `.tex` extension and compile it with a LaTeX engine that supports Beamer, for example:
+A Beamer source file is saved with the `.tex` extension and compiled using a LaTeX engine that supports Beamer. For example:
 
 ```bash
 pdflatex presentation.tex
 ```
 
-## 2.8 Examples
+## Examples
 
-See [`Examples/`](Examples/) for a complete sample presentation.
+[`Examples/sample-presentation.tex`](Examples/sample-presentation.tex) is a complete Beamer source file. It demonstrates a title slide, content frames, a list, a highlighted block, and a two-column layout. The example is written in LaTeX and can be compiled to produce a presentation PDF.
 
-## 2.9 What I Learned
+## My learning outcome
 
-Beamer makes it possible to create structured slide presentations using LaTeX. I learned the basic presentation structure, frames, title slides, themes, lists, blocks, and columns.
+I learned how to create a slide presentation using LaTeX Beamer, define presentation details, create frames, apply a theme, organise content with lists and blocks, and arrange information in columns.
 
-## Source Material
+## Source material
 
-This section records the Beamer concepts practised as part of the Technical Writing presentation work. The specific examples in the folder are practice samples.
+This section records the Beamer concepts practised as part of the Technical Writing presentation work. The sample presentation is a practice example.

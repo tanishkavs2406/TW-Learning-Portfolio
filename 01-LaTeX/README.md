@@ -1,20 +1,12 @@
 # 1. LaTeX
 
-## 1.1 Introduction
+## What I learned
 
-LaTeX is a document preparation system based on the TeX typesetting system. It is useful for technical and academic documents, especially when mathematical notation, references, tables, and structured layouts are required.
+LaTeX is a document preparation system based on TeX. I learned that it is especially useful for technical and academic writing because it can produce well-structured documents and handle mathematical notation, tables, figures, and references neatly.
 
-### Advantages
+## 1.1 Basic document structure
 
-- Portable and free.
-- Produces professional document layouts.
-- Convenient mathematical typesetting.
-- Supports structured documents.
-- Can generate tables of contents, footnotes, references, and bibliographies.
-
-## 1.2 Basic Document Structure
-
-A LaTeX source file is a plain-text file saved with the `.tex` extension. A basic document consists of a preamble and a document body.
+A LaTeX source file is saved with the `.tex` extension. A document has a preamble, where the document class and packages are declared, and a body, where the actual content is written.
 
 ```latex
 \documentclass[12pt,a4paper]{article}
@@ -24,139 +16,59 @@ Hello, LaTeX!
 \end{document}
 ```
 
-- `\documentclass` selects the document type and options.
-- The preamble contains packages and document settings.
-- `\begin{document}` starts the document body.
-- `\end{document}` ends the document.
+I learned that `\documentclass` selects the document type, while `\begin{document}` and `\end{document}` mark the start and end of the content. Common classes include `article`, `report`, and `book`.
 
-Common document classes include `article`, `report`, and `book`.
+## 1.2 Packages and page layout
 
-## 1.3 Packages and Page Layout
-
-Packages add features to LaTeX. They are included in the preamble, before `\begin{document}`.
+Packages add extra features. For example, `amsmath` supports advanced mathematics, `graphicx` helps insert images, `xcolor` adds colour, and `geometry` controls page margins.
 
 ```latex
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{geometry}
-
-\geometry{
-    left=2.5cm,
-    right=2.5cm,
-    top=2.5cm,
-    bottom=2.5cm
-}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 ```
 
-Page styles include:
+I also learned about page styles such as `plain`, `empty`, and `headings`.
 
-- `plain`: page number at the bottom.
-- `empty`: no header, footer, or page number.
-- `headings`: section or chapter information in the header.
+## 1.3 Text formatting and lists
 
-```latex
-\pagestyle{plain}
-```
-
-## 1.4 Text Formatting and Structure
-
-LaTeX commands are case-sensitive and generally begin with a backslash.
+LaTeX uses commands for formatting and environments for grouped structures. I practised section headings, bold, italic, and underlined text, along with ordered and unordered lists.
 
 ```latex
 \section{Introduction}
-\subsection{Purpose}
-
 \textbf{Bold text}
 \textit{Italic text}
 \underline{Underlined text}
-\emph{Emphasized text}
-```
 
-### Unordered List
-
-```latex
 \begin{itemize}
     \item First point
     \item Second point
 \end{itemize}
 ```
 
-### Ordered List
+The `itemize` environment creates bullet points, while `enumerate` creates numbered points.
+
+## 1.4 Mathematical notation
+
+One of the main things I learned was how LaTeX handles mathematical expressions. Inline mathematics is written within `\(...\)`, while displayed equations use `\[...\]` or a suitable equation environment.
 
 ```latex
-\begin{enumerate}
-    \item First step
-    \item Second step
-\end{enumerate}
-```
+Inline: \(a^2+b^2=c^2\)
 
-## 1.5 Mathematical Notation
-
-LaTeX supports inline and displayed mathematical expressions.
-
-**Inline mathematics**
-
-```latex
-\(x+y=10\)
-```
-
-**Displayed equation**
-
-```latex
 \[
-x+y=10
+\frac{a+b}{c} = \sqrt{x}
 \]
 ```
 
-### Common Expressions
+I practised subscripts, superscripts, Greek letters, fractions, roots, summations, matrices, and aligned equations. The `amsmath` package provides environments such as `align`, and `bmatrix` creates a matrix with square brackets.
+
+## 1.5 Tables
+
+I learned to create tables using the `tabular` environment. The column specification determines alignment: `c` centres content, `l` aligns it to the left, and `r` aligns it to the right.
 
 ```latex
-$a_i^2 + b_j^3$
-
-$\alpha,\beta,\gamma,\delta,\lambda,\pi$
-
-$\frac{a+b}{c}$
-
-$\sqrt{x}$ and $\sqrt[3]{y}$
-
-$\sum_{i=1}^{n} i$
-```
-
-### Matrices
-
-The `bmatrix` environment creates a matrix enclosed in square brackets.
-
-```latex
-\[
-A =
-\begin{bmatrix}
-1 & 2 \\
-3 & 4
-\end{bmatrix}
-\]
-```
-
-- `&` separates columns.
-- `\\` separates rows.
-
-### Aligned Equations
-
-The `align` environment from the `amsmath` package aligns equations, often at the `&` symbol.
-
-```latex
-\begin{align}
-x + y &= 10 \\
-2x + y &= 15
-\end{align}
-```
-
-## 1.6 Tables
-
-The `tabular` environment is used to create tables.
-
-```latex
-\begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
 Name & Subject & Marks \\
@@ -165,79 +77,48 @@ Asha & Maths & 90 \\
 Ravi & Science & 85 \\
 \hline
 \end{tabular}
-\end{center}
 ```
 
-### Important Table Commands
+I practised `&` to separate columns, `\\` to end rows, and `\hline` to draw horizontal lines. I also learned about paragraph columns (`p{width}`), `\multicolumn`, `\multirow`, and table placement options such as `h`, `t`, `b`, and `p`.
 
-- `&` separates columns.
-- `\\` ends a row.
-- `\hline` draws a horizontal line.
-- `c`, `l`, and `r` mean centred, left-aligned, and right-aligned columns.
-- `p{width}` creates a paragraph column.
-- `\multicolumn` combines columns.
-- `\multirow` combines rows when the `multirow` package is loaded.
+## 1.6 Figures, pictures, and colours
 
-### Table Placement
-
-Common float placement options include `h` (here), `t` (top), `b` (bottom), and `p` (float page). `!` asks LaTeX to relax certain placement restrictions. `H` is provided by the `float` package and requests placement at that exact point.
-
-## 1.7 Figures, Pictures, and Colours
-
-### Including an External Image
-
-The `graphicx` package is used to include external images.
+The `graphicx` package is used to include external images. The `xcolor` package provides named and custom colours.
 
 ```latex
-\usepackage{graphicx}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{sample.png}
-    \caption{Sample figure}
-    \label{fig:sample}
-\end{figure}
-```
-
-### Colours
-
-The `xcolor` package provides colour support.
-
-```latex
-\usepackage{xcolor}
+\includegraphics[width=0.5\textwidth]{sample.png}
 
 \textcolor{blue}{Blue text}
-
 \definecolor{myblue}{RGB}{10,60,200}
 \textcolor{myblue}{Custom coloured text}
 ```
 
-## 1.8 Compiling a LaTeX Document
+I learned that figures can include captions and labels, and that the image file must be available at the path specified in `\includegraphics`.
 
-A `.tex` file is processed by a LaTeX compiler to generate the final document.
+## 1.7 Compiling
 
-**PDFLaTeX**
+A `.tex` source file is compiled to create an output document, commonly a PDF. One command-line option is:
 
 ```bash
 pdflatex filename.tex
 ```
 
-**Traditional LaTeX workflow**
+Online editors such as Overleaf can also compile LaTeX documents.
 
-```bash
-latex filename.tex
-```
+## Examples
 
-The traditional command generates a DVI file. Editors such as Overleaf and TeXstudio can compile documents through their interfaces.
+The [`Examples/`](Examples/) folder contains complete LaTeX source files. These examples are written in LaTeX (`.tex`) and cover:
 
-## 1.9 Examples
+- `01-basic-document.tex` — document structure, text formatting, and lists.
+- `02-mathematics-and-matrices.tex` — equations, fractions, summations, matrices, and alignment.
+- `03-table-figure-colour.tex` — tables, figures, and colours.
 
-The [`Examples/`](Examples/) folder contains small source files that demonstrate document structure, equations, tables, and figures/colours. Open each `.tex` file in a LaTeX editor and compile it to inspect the output.
+Open a `.tex` file in a LaTeX editor and compile it to see the resulting document. For the figure sample, add an image named `sample.png` to the same folder and uncomment the figure environment.
 
-## 1.10 What I Learned
+## My learning outcome
 
-LaTeX separates document content from formatting and provides precise control over technical documents. I practised document structure, text formatting, mathematical equations, lists, matrices, tables, figures, and colours.
+I learned how to prepare a structured document in LaTeX, format text, organise content with sections and lists, typeset mathematical expressions, create tables, include figures, apply colours, and compile a `.tex` file into a PDF.
 
-## Source Material
+## Source material
 
 Based on the Technical Writing lecture material on Introduction to LaTeX, environments, mathematical notations/equations/arrays/matrices/lists, table styles, and colours/figures/picture environment.

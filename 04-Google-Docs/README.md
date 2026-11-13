@@ -1,64 +1,45 @@
 # 4. Google Docs
 
-## 4.1 Introduction
+## What I learned
 
-Google Docs is an online word-processing tool used to create, edit, format, store, and share documents. It supports collaborative writing, allowing multiple users to work on a document.
+Google Docs is an online word-processing tool used to create, edit, format, store, and share documents. I learned that it is useful for individual writing as well as collaborative work because multiple people can work on the same document.
 
-## 4.2 Key Features
+## 4.1 Creating and formatting documents
 
-- Real-time multi-user collaboration.
-- Rich formatting, including styles, headings, tables, images, drawings, links, and equations.
-- Comments and suggestions for review and feedback.
-- Version history to track changes and restore earlier states.
-- Import and export options, including DOCX, PDF, ODT, RTF, HTML, and plain text.
+I practised creating a blank document or starting from a template, adding content, applying formatting, and organising information with headings. Google Docs also supports tables, images, drawings, links, and equations.
 
-## 4.3 Creating and Formatting a Document
+Using heading styles makes a long document easier to navigate and keeps its structure consistent.
 
-A typical workflow is:
+## 4.2 Collaboration and sharing
 
-1. Open Google Docs.
-2. Create a blank document or start from a template.
-3. Add and organise the content.
-4. Apply heading styles and text formatting.
-5. Insert tables, images, links, or other required elements.
-6. Rename the document.
+A document can be shared with selected people. The access role determines what each person can do:
 
-Using heading styles helps organise long documents and supports navigation.
+- **Viewer** — can view the document.
+- **Commenter** — can view and add comments.
+- **Editor** — can make changes to the document.
 
-## 4.4 Collaboration and Sharing
+I learned that sharing permissions should be selected carefully so that collaborators receive only the access they need.
 
-Google Docs allows users to share a document with other people. Sharing permissions determine what collaborators can do.
+## 4.3 Comments and suggestions
 
-Common access roles are:
+Comments let reviewers ask questions or give feedback without directly changing the document text. Suggesting mode lets a reviewer propose edits that can later be accepted or rejected. These tools are useful when a document is being reviewed by a group.
 
-- Viewer — can view the document.
-- Commenter — can view and add comments.
-- Editor — can make changes to the document.
+## 4.4 Version history
 
-Share documents only with the intended people and choose permissions carefully.
+Version history records earlier versions of a document. I learned how it can be used to inspect previous changes and restore an earlier version when required.
 
-## 4.5 Comments and Suggestions
+## 4.5 Importing and exporting
 
-- Comments are used to provide feedback or ask questions without directly changing the document text.
-- Suggesting mode allows proposed edits to be reviewed before they are accepted or rejected.
-- These features are useful when multiple people are reviewing a document.
+Google Docs supports importing and exporting different document formats, including DOCX, PDF, ODT, RTF, HTML, and plain text. For example, a finished document can be downloaded as a PDF or Word document.
 
-## 4.6 Version History
+## Examples and practice
 
-Version history allows users to inspect earlier versions of a document and restore a previous version when needed. It is useful for tracking the evolution of collaborative work.
+The [`Examples/`](Examples/) folder contains a sample document outline and a collaboration checklist. These are planning materials for practising headings, tables, sharing permissions, comments, suggestions, and version history in Google Docs; they are not intended to be LaTeX source files.
 
-## 4.7 Importing and Exporting
+## My learning outcome
 
-Google Docs supports importing and exporting several document formats. For example, a document can be downloaded as a PDF or Microsoft Word document.
+I learned how to create and format documents, organise content with heading styles, share documents with different permission levels, collaborate using comments and suggestions, review version history, and export documents into other formats.
 
-## 4.8 Examples
+## Source material
 
-The [`Examples/`](Examples/) folder contains a sample document outline and a collaboration checklist that can be used while practising Google Docs.
-
-## 4.9 What I Learned
-
-I learned how to create and format documents, organise content with headings, collaborate with others, use comments and suggestions, review version history, and export documents into different formats.
-
-## Source Material
-
-Based on the Technical Writing lecture on Introduction to Documentation Tools: Doxygen and Google Docs.
+Based on the Technical Writing lecture, *Introduction to Documentation Tools: Doxygen and Google Docs*.
